@@ -317,12 +317,22 @@ int _getpid(void)
     return active_thread->pid;
 }
 /*---------------------------------------------------------------------------*/
-int _kill_r(struct _reent *r, int pid, int sig)
-{
+//int _kill_r(struct _reent *r, int pid, int sig)
+//{
     /* not implemented */
-    r->_errno = ESRCH;		// no such process
-    return -1;
+//    r->_errno = ESRCH;		// no such process
+//    return -1;
+//}
+
+/*
+ kill
+ Send a signal. Minimal implementation:
+ */
+int _kill(int pid, int sig) {
+    errno = EINVAL;
+    return (-1);
 }
+
 #ifdef MODULE_VTIMER
 int _gettimeofday(struct timeval *tp, void *restrict tzp) {
     (void) tzp;
