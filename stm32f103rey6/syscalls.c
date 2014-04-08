@@ -93,6 +93,9 @@ static const caddr_t heap_start[NUM_HEAPS] = {(caddr_t) &__heap1_start}; //,(cad
 // current heap in use
 volatile static uint8_t iUsedHeap = 0;
 
+// dummy handler for C++ destructors
+void* __dso_handle;
+
 /** @} */
 
 /*-----------------------------------------------------------------------------------*/
@@ -317,21 +320,11 @@ int _getpid(void)
     return active_thread->pid;
 }
 /*---------------------------------------------------------------------------*/
-//int _kill_r(struct _reent *r, int pid, int sig)
-//{
-//    /* not implemented */
-//    r->_errno = ESRCH;		// no such process
-//    return -1;
-//}
-
-/*
- kill
- Send a signal. Minimal implementation:
- */
 int _kill(int pid, int sig) {
     errno = EINVAL;
     return (-1);
 }
+/*---------------------------------------------------------------------------*/
 
 #ifdef MODULE_VTIMER
 int _gettimeofday(struct timeval *tp, void *restrict tzp) {
