@@ -45,7 +45,8 @@ and the mailinglist (subscription via web site)
  *
  *
  */
-#define TRANSCEIVER_BUFFER_SIZE (3)
+#define TRANSCEIVER_BUFFER_SIZE (10)
+#define RX_BUF_SIZE  (10)
 
 #define FEUERWARE_CONF_CPU_NAME			"stm32f103rey6"
 
