@@ -317,7 +317,7 @@ void _exit(int n)
 /*---------------------------------------------------------------------------*/
 int _getpid(void)
 {
-    return active_thread->pid;
+    return sched_active_thread->pid;
 }
 /*---------------------------------------------------------------------------*/
 int _kill(int pid, int sig) {
